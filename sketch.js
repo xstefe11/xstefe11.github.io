@@ -228,17 +228,31 @@ function showAbout() {
   }
 }
 
-function showSymetry(sym){
+
+function showSymetry(sym, ang){
   push();
   translate(width / 2, height / 2);
-  stroke(255, 30);
   strokeWeight(2);
+  colorMode(HSB, 255);
   for (let i = 0; i < sym; i++) {
-    rotate(angle);
-    line(0, 0, 0, height / 2);
+    let a = i * ang;
+
+    // Segment line 
+    stroke(0, 0, 100, 100); 
+    let x1 = cos(a) * width;
+    let y1 = sin(a) * width;
+    line(0, 0, x1, y1);
+
+    // Mirror line
+    stroke(100, 100, 255, 60);
+    let x2 = cos(a + ang / 2) * width;
+    let y2 = sin(a + ang / 2) * width;
+    line(0, 0, x2, y2);
   }
+
   pop();
 }
+
 
 
 function draw() {
@@ -258,7 +272,7 @@ function draw() {
   // Draw the persistent drawing layer
   image(pg, 0, 0);
   if (showGuides.checked()) {
-      showSymetry(symmetry);
+      showSymetry(symmetry,angle);
   }
 
   // Only draw if mouse is pressed and inside canvas
