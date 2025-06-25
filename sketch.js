@@ -1,6 +1,6 @@
 /* Final project Visual creativity informatics 2025
    Author: Nina Stefekova 498509
-   Description: Tool to draw round mosaics/mandalas
+   Description: Tool to draw rosette mosaics/mandalas
    Features:
             Adjust symmetry
             Pick bacground color
